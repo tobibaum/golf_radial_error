@@ -61,8 +61,8 @@ def find_circles_in_img(img, plot_it=False):
     img2[mask == 0] = 0
     img2[mask != 0] = 125
     
-    kernel = np.ones((4,4),np.uint8)
-    img2 = cv2.erode(img2, kernel, iterations=8)
+    kernel = np.ones((2,2),np.uint8)
+    img2 = cv2.erode(img2, kernel, iterations=4)
     gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
     gray_blurred = cv2.blur(gray, (3, 3))    
     
@@ -75,8 +75,8 @@ def find_circles_in_img(img, plot_it=False):
     gray_blurred[cc!=winner]=0
     
     detected_circles = cv2.HoughCircles(gray_blurred, 
-                       cv2.HOUGH_GRADIENT, 3, 40, param1=20,
-                       param2=50,minRadius = 5, maxRadius = 80)
+                       cv2.HOUGH_GRADIENT, 3, 40, param1=10,
+                       param2=40,minRadius = 1, maxRadius = 40)
 
     if plot_it:
         plt.imshow(mask)
