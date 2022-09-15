@@ -4,6 +4,8 @@ Goal: measure the distance of the golf put to the hole. white card = ball hit ho
 
 Dimensions and conversion of pixel to meters in `golf_utils.py`
 
+WARNING: method has been developed for full-size images. Here we use 640x480. for best results, implement better Vision and finetuning the algorithms ;)
+
 ### Run
 `0_golf_simple.ipynb`: simple color-based location of golf ball
 
